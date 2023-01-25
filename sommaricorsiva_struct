@@ -1,0 +1,50 @@
+
+#include <stdio.h>
+#include <string.h>
+#define MAX 10
+struct pr
+{
+  char nome[300];
+  float prezzo;
+  int id;
+};
+typedef struct pr prodotto;
+void riemp_vett (prodotto[MAX]);
+float sommaprod (prodotto[MAX], int);
+
+int
+main ()
+{
+  prodotto p[MAX];
+  float s;
+  s = sommaprod (&p[0], MAX);
+  printf ("\n %f \n", s);
+  return 0;
+}
+
+void
+riep_vett (prodotto pr[MAX])
+{
+  int i;
+  for (i = 0; i < MAX; i++)
+    {
+      printf ("Inserisci il nome del prodotto\n");
+      scanf ("%s", &pr[i].nome);
+      printf ("Inserisci il prezzo del prodotto\n");
+      scanf ("%f", &pr[i].prezzo);
+      printf ("Inserisci l'id del prodotto\n");
+      scanf ("%d", &pr[i].id);
+    }
+}
+
+float
+sommaprod (prodotto p1[MAX], int n)
+{
+  if (n == 1)
+    return p1[0].prezzo;
+  else
+
+    return ((p1[n - 1].prezzo) + sommaprod (&p1[0], n - 1));
+
+
+}
