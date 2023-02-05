@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+int confronto (char[], char[], int);
+int
+main ()
+{
+  char s1[200], s2[200];
+  int i, uguale;
+  int dim1 = strlen(s1);
+  i = 0;
+  printf ("Inserisci il testo\n");
+  gets(s1);
+  printf ("Inserisci la chiave\n");
+  gets(s2);
+  uguale = confronto(s1, s2, dim1);
+  if(uguale==0)
+  printf("Le due stringhe sono uguali\n");
+  else { if(uguale<0)
+  printf("La stringa %s e' posizionata precedentemente(in ordine alfabetico) rispetto alla stringa %s\n", s1, s2);
+  else
+  printf("La stringa %s e' posizionata successivamente(in ordine alfabetico) rispetto alla stringa %s\n", s1, s2);}
+  return 0;
+}
+int
+confronto(char st[], char t[], int n){
+    int i, flag;
+    flag = 0;
+    i = 0;
+    do
+    {
+        if(st[i]==t[i])
+        flag = 0;
+        else if(st[i]<t[i])
+        flag = -1;
+        else
+        flag = 1;
+        i++;
+    }while(flag==0 && st[i]!='\0');
+    return flag;
+}
