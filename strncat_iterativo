@@ -1,0 +1,32 @@
+
+#include <stdio.h>
+#include <string.h>
+void cat (char[], char[], int);
+int
+main ()
+{
+  char s1[200], s2[200];
+  int m;
+  printf ("Inserisci il testo\n");
+  gets(s1);
+  printf ("Inserisci la chiave\n");
+  gets(s2);
+  printf("Quanti caratteri vuoi copiare nella stringa 1?\n");
+  scanf("%d", &m);
+  cat (s1, s2, m);
+
+  return 0;
+}
+
+void
+copia (char st[], char t[], int m)
+{
+  int i, j;
+  int n = strlen (st);
+  j = 0;
+  for (i = 0; i < n && i < m; i++)
+    {
+      st[n++] = t[j++];
+    }
+  printf ("\n STRNCAT: %s \n", st);
+}
