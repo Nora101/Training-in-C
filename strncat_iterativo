@@ -19,7 +19,7 @@ main ()
 }
 
 void
-copia (char st[], char t[], int m)
+cat (char st[], char t[], int m)
 {
   int i, j;
   int n = strlen (st);
